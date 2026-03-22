@@ -5,15 +5,17 @@
   <section class="home-section home-working">
     <h2 class="section-heading">Working</h2>
     <div class="section-content">
-      {{ $workingPosts := (where (where .Site.RegularPages "Type" "post") ".Params.categories" "intersect" (slice "Working")) }}
-      {{ range first 5 $workingPosts }}
-        <div class="section-item h-entry">
-          {{ if .Title }}
-            <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
-          {{ else }}
-            <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
-          {{ end }}
-        </div>
+      {{ $cat := $.Site.GetPage "/categories/working" }}
+      {{ with $cat }}
+        {{ range first 5 .Pages }}
+          <div class="section-item h-entry">
+            {{ if .Title }}
+              <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
+            {{ else }}
+              <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
       {{ end }}
     </div>
   </section>
@@ -22,15 +24,17 @@
   <section class="home-section home-writing">
     <h2 class="section-heading">Writing</h2>
     <div class="section-content">
-      {{ $writingPosts := (where (where .Site.RegularPages "Type" "post") ".Params.categories" "intersect" (slice "Writing")) }}
-      {{ range first 5 $writingPosts }}
-        <div class="section-item h-entry">
-          {{ if .Title }}
-            <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
-          {{ else }}
-            <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
-          {{ end }}
-        </div>
+      {{ $cat := $.Site.GetPage "/categories/writing" }}
+      {{ with $cat }}
+        {{ range first 5 .Pages }}
+          <div class="section-item h-entry">
+            {{ if .Title }}
+              <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
+            {{ else }}
+              <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
       {{ end }}
     </div>
   </section>
@@ -39,15 +43,17 @@
   <section class="home-section home-sharing">
     <h2 class="section-heading">Sharing</h2>
     <div class="section-content">
-      {{ $sharingPosts := (where (where .Site.RegularPages "Type" "post") ".Params.categories" "intersect" (slice "Sharing")) }}
-      {{ range first 5 $sharingPosts }}
-        <div class="section-item h-entry">
-          {{ if .Title }}
-            <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
-          {{ else }}
-            <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
-          {{ end }}
-        </div>
+      {{ $cat := $.Site.GetPage "/categories/sharing" }}
+      {{ with $cat }}
+        {{ range first 5 .Pages }}
+          <div class="section-item h-entry">
+            {{ if .Title }}
+              <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
+            {{ else }}
+              <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
       {{ end }}
     </div>
   </section>
@@ -56,15 +62,17 @@
   <section class="home-section home-about">
     <h2 class="section-heading">About</h2>
     <div class="section-content">
-      {{ $aboutPosts := (where (where .Site.RegularPages "Type" "post") ".Params.categories" "intersect" (slice "About")) }}
-      {{ range first 5 $aboutPosts }}
-        <div class="section-item h-entry">
-          {{ if .Title }}
-            <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
-          {{ else }}
-            <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
-          {{ end }}
-        </div>
+      {{ $cat := $.Site.GetPage "/categories/about" }}
+      {{ with $cat }}
+        {{ range first 5 .Pages }}
+          <div class="section-item h-entry">
+            {{ if .Title }}
+              <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
+            {{ else }}
+              <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
       {{ end }}
     </div>
   </section>
@@ -73,17 +81,19 @@
   <section class="home-section home-photography">
     <h2 class="section-heading">Photography</h2>
     <div class="photo-grid">
-      {{ $photoPosts := (where (where .Site.RegularPages "Type" "post") ".Params.categories" "intersect" (slice "Photography")) }}
-      {{ range first 9 $photoPosts }}
-        {{ $content := .Content }}
-        {{ if findRE "<img" $content }}
-          {{ $imgTag := index (findRE `<img[^>]+src="([^"]+)"` $content) 0 }}
-          {{ $imgSrc := index (findRE `src="([^"]+)"` $imgTag) 0 }}
-          {{ $src := replaceRE `src="` "" $imgSrc }}
-          {{ $src = replaceRE `"` "" $src }}
-          <a href="{{ .Permalink }}" class="photo-grid-item">
-            <img src="{{ $src }}" alt="{{ .Title }}" loading="lazy" />
-          </a>
+      {{ $cat := $.Site.GetPage "/categories/photography" }}
+      {{ with $cat }}
+        {{ range first 9 .Pages }}
+          {{ $content := .Content }}
+          {{ if findRE "<img" $content }}
+            {{ $imgTag := index (findRE `<img[^>]+src="([^"]+)"` $content) 0 }}
+            {{ $imgSrc := index (findRE `src="([^"]+)"` $imgTag) 0 }}
+            {{ $src := replaceRE `src="` "" $imgSrc }}
+            {{ $src = replaceRE `"` "" $src }}
+            <a href="{{ .Permalink }}" class="photo-grid-item">
+              <img src="{{ $src }}" alt="{{ .Title }}" loading="lazy" />
+            </a>
+          {{ end }}
         {{ end }}
       {{ end }}
     </div>
