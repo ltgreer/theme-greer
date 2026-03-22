@@ -1,0 +1,44 @@
+{{ define "main" }}
+<article class="post h-entry">
+  {{ if .Title }}
+    <h1 class="post-title p-name"><a href="{{ .Permalink }}" class="u-url">{{ .Title | markdownify }}</a></h1>
+  {{ end }}
+
+  <div class="post-meta">
+    {{ if .Date }}
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}" class="dt-published post-date">
+        <a href="{{ .Permalink }}" class="u-url">{{ .Date.Format "January 2, 2006" }}</a>
+      </time>
+    {{ end }}
+    {{ with .Params.categories }}
+      <span class="post-categories">
+        {{ range . }}
+          <a href="{{ (urlize (printf "categories/%s" . )) | absURL }}/" rel="tag" class="p-category">{{ . }}</a>
+        {{ end }}
+      </span>
+    {{ end }}
+  </div>
+
+  <div class="post-content e-content">
+    {{ .Content }}
+  </div>
+
+  {{ if or .NextInSection .PrevInSection }}
+    <nav class="post-nav">
+      <hr />
+      <div class="post-nav-links">
+        {{ if .NextInSection }}
+          <a href="{{ .NextInSection.Permalink }}" class="post-nav-prev">&larr; {{ .NextInSection.Title }}</a>
+        {{ end }}
+        {{ if .PrevInSection }}
+          <a href="{{ .PrevInSection.Permalink }}" class="post-nav-next">{{ .PrevInSection.Title }} &rarr;</a>
+        {{ end }}
+      </div>
+    </nav>
+  {{ end }}
+</article>
+
+{{ if .Site.Params.include_conversation }}
+<script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+{{ end }}
+{{ end }}

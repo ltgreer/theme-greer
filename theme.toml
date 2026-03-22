@@ -1,0 +1,6 @@
+name = "Greer"
+license = "MIT"
+licenselink = "https://github.com/your-repo/blob/master/LICENSE"
+description = "A minimal CV-style personal theme with tagged content sections and photo grid."
+homepage = ""
+min_version = 0.91

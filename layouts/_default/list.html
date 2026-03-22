@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="post-list h-feed">
+  {{ if .Title }}
+    <h1 class="list-title p-name">{{ .Title }}</h1>
+  {{ end }}
+
+  {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
+  {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
+  {{ $paginator := .Paginate (where .Pages "Type" $contentTypeName) }}
+
+  {{ range $paginator.Pages }}
+    <article class="post-item h-entry">
+      {{ if .Title }}
+        <h2 class="post-item-title p-name"><a href="{{ .Permalink }}" class="u-url">{{ .Title | markdownify }}</a></h2>
+      {{ end }}
+
+      <div class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}" class="dt-published post-date">
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
+        {{ with .Params.categories }}
+          <span class="post-categories">
+            {{ range . }}
+              <a href="{{ (urlize (printf "categories/%s" . )) | absURL }}/" class="p-category">{{ . }}</a>
+            {{ end }}
+          </span>
+        {{ end }}
+      </div>
+
+      <div class="post-content e-content">
+        {{ .Content }}
+      </div>
+    </article>
+  {{ end }}
+
+  {{ partial "pagination.html" . }}
+</div>
+{{ end }}

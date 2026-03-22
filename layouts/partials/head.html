@@ -1,0 +1,24 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.site_tagline }}{{ else }}{{ .Summary | plainify }}{{ end }}">
+<meta name="robots" content="noodp">
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- Theme CSS -->
+<link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
+
+<!-- Custom CSS override -->
+<link rel="stylesheet" href="{{ "custom.css" | absURL }}">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="{{ $.Site.Language.Lang }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }} — {{ $.Site.Title }}{{ end }}">
+<meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.site_tagline }}{{ else }}{{ .Summary | plainify }}{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ $.Site.Title }}">
+
+<!-- IndieWeb -->
+<link rel="me" href="{{ $.Site.BaseURL }}">
+
+{{ partial "microblog_head.html" . }}

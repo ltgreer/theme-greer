@@ -1,0 +1,12 @@
+{
+	"params": {
+		"contentTypeName": "post",
+		"author_name": "Your Name",
+		"author_bio": "A short bio about yourself.",
+		"author_avatar": "",
+		"site_tagline": "Personal site & blog",
+		"include_conversation": true,
+		"photo_count": 9,
+		"section_post_count": 5
+	}
+}

@@ -1,0 +1,9 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    {{ if $.Site.Copyright }}
+      <p class="copyright">{{ $.Site.Copyright | safeHTML }}</p>
+    {{ else }}
+      <p class="copyright">&copy; {{ now.Year }} {{ $.Site.Title }}</p>
+    {{ end }}
+  </div>
+</footer>

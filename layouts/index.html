@@ -1,0 +1,94 @@
+{{ define "main" }}
+<div class="homepage h-card">
+
+  {{/* ===== ABOUT SECTION (h-card) ===== */}}
+  <section class="home-section home-about">
+    <h2 class="section-heading">About</h2>
+    <div class="section-content">
+      {{ $aboutPosts := (where (where .Site.RegularPages "Type" "post") ".Params.categories" "intersect" (slice "about")) }}
+      {{ range first ($.Site.Params.section_post_count | default 5) $aboutPosts }}
+        <div class="section-item h-entry">
+          {{ if .Title }}
+            <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
+          {{ else }}
+            <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  {{/* ===== WORKING SECTION ===== */}}
+  <section class="home-section home-working">
+    <h2 class="section-heading">Working</h2>
+    <div class="section-content">
+      {{ $workingPosts := (where (where .Site.RegularPages "Type" "post") ".Params.categories" "intersect" (slice "working")) }}
+      {{ range first ($.Site.Params.section_post_count | default 5) $workingPosts }}
+        <div class="section-item h-entry">
+          {{ if .Title }}
+            <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
+          {{ else }}
+            <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  {{/* ===== WRITING SECTION ===== */}}
+  <section class="home-section home-writing">
+    <h2 class="section-heading">Writing</h2>
+    <div class="section-content">
+      {{ $writingPosts := (where (where .Site.RegularPages "Type" "post") ".Params.categories" "intersect" (slice "writing")) }}
+      {{ range first ($.Site.Params.section_post_count | default 5) $writingPosts }}
+        <div class="section-item h-entry">
+          {{ if .Title }}
+            <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
+          {{ else }}
+            <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  {{/* ===== SHARING SECTION ===== */}}
+  <section class="home-section home-sharing">
+    <h2 class="section-heading">Sharing</h2>
+    <div class="section-content">
+      {{ $sharingPosts := (where (where .Site.RegularPages "Type" "post") ".Params.categories" "intersect" (slice "sharing")) }}
+      {{ range first ($.Site.Params.section_post_count | default 5) $sharingPosts }}
+        <div class="section-item h-entry">
+          {{ if .Title }}
+            <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
+          {{ else }}
+            <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  {{/* ===== PHOTOGRAPHY SECTION ===== */}}
+  <section class="home-section home-photography">
+    <h2 class="section-heading">Photography</h2>
+    <div class="photo-grid">
+      {{ $photoPosts := (where (where .Site.RegularPages "Type" "post") ".Params.categories" "intersect" (slice "photography")) }}
+      {{ range first ($.Site.Params.photo_count | default 9) $photoPosts }}
+        {{ $content := .Content }}
+        {{/* Extract the first image from post content */}}
+        {{ if findRE "<img" $content }}
+          {{ $imgTag := index (findRE `<img[^>]+src="([^"]+)"` $content) 0 }}
+          {{ $imgSrc := index (findRE `src="([^"]+)"` $imgTag) 0 }}
+          {{ $src := replaceRE `src="` "" $imgSrc }}
+          {{ $src = replaceRE `"` "" $src }}
+          <a href="{{ .Permalink }}" class="photo-grid-item">
+            <img src="{{ $src }}" alt="{{ .Title }}" loading="lazy" />
+          </a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </section>
+
+</div>
+{{ end }}
