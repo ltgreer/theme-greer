@@ -1,89 +1,84 @@
-{{ define "main" }}
-<div class="homepage h-card">
+{{ define "main" -}}
+<div class="homepage-sections">
 
   {{/* ===== WORKING SECTION ===== */}}
-  <section class="home-section home-working">
+  <section class="home-section">
     <h2 class="section-heading">Working</h2>
-    <div class="section-content">
-      {{ $cat := $.Site.GetPage "/categories/working" }}
-      {{ with $cat }}
-        {{ range first 5 .Pages }}
-          <div class="section-item h-entry">
+    <ul class="section-list">
+      {{ with $.Site.GetPage "/categories/working" }}
+        {{ range first 5 .Pages.ByDate.Reverse }}
+          <li>
             {{ if .Title }}
-              <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
             {{ else }}
-              <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
+              <a href="{{ .Permalink }}">{{ .Summary | plainify | truncate 80 }}</a>
             {{ end }}
-          </div>
+          </li>
         {{ end }}
       {{ end }}
-    </div>
+    </ul>
   </section>
 
   {{/* ===== WRITING SECTION ===== */}}
-  <section class="home-section home-writing">
+  <section class="home-section">
     <h2 class="section-heading">Writing</h2>
-    <div class="section-content">
-      {{ $cat := $.Site.GetPage "/categories/writing" }}
-      {{ with $cat }}
-        {{ range first 5 .Pages }}
-          <div class="section-item h-entry">
+    <ul class="section-list">
+      {{ with $.Site.GetPage "/categories/writing" }}
+        {{ range first 5 .Pages.ByDate.Reverse }}
+          <li>
             {{ if .Title }}
-              <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
             {{ else }}
-              <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
+              <a href="{{ .Permalink }}">{{ .Summary | plainify | truncate 80 }}</a>
             {{ end }}
-          </div>
+          </li>
         {{ end }}
       {{ end }}
-    </div>
+    </ul>
   </section>
 
   {{/* ===== SHARING SECTION ===== */}}
-  <section class="home-section home-sharing">
+  <section class="home-section">
     <h2 class="section-heading">Sharing</h2>
-    <div class="section-content">
-      {{ $cat := $.Site.GetPage "/categories/sharing" }}
-      {{ with $cat }}
-        {{ range first 5 .Pages }}
-          <div class="section-item h-entry">
+    <ul class="section-list">
+      {{ with $.Site.GetPage "/categories/sharing" }}
+        {{ range first 5 .Pages.ByDate.Reverse }}
+          <li>
             {{ if .Title }}
-              <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
             {{ else }}
-              <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
+              <a href="{{ .Permalink }}">{{ .Summary | plainify | truncate 80 }}</a>
             {{ end }}
-          </div>
+          </li>
         {{ end }}
       {{ end }}
-    </div>
+    </ul>
   </section>
 
   {{/* ===== ABOUT SECTION ===== */}}
-  <section class="home-section home-about">
+  <section class="home-section">
     <h2 class="section-heading">About</h2>
-    <div class="section-content">
-      {{ $cat := $.Site.GetPage "/categories/about" }}
-      {{ with $cat }}
-        {{ range first 5 .Pages }}
-          <div class="section-item h-entry">
+    <ul class="section-list">
+      {{ with $.Site.GetPage "/categories/about" }}
+        {{ range first 5 .Pages.ByDate.Reverse }}
+          <li>
             {{ if .Title }}
-              <a href="{{ .Permalink }}" class="u-url p-name">{{ .Title }}</a>
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
             {{ else }}
-              <a href="{{ .Permalink }}" class="u-url">{{ .Summary | plainify | truncate 80 }}</a>
+              <a href="{{ .Permalink }}">{{ .Summary | plainify | truncate 80 }}</a>
             {{ end }}
-          </div>
+          </li>
         {{ end }}
       {{ end }}
-    </div>
+    </ul>
   </section>
 
   {{/* ===== PHOTOGRAPHY SECTION ===== */}}
-  <section class="home-section home-photography">
+  <section class="home-section">
     <h2 class="section-heading">Photography</h2>
     <div class="photo-grid">
-      {{ $cat := $.Site.GetPage "/categories/photography" }}
-      {{ with $cat }}
-        {{ range first 9 .Pages }}
+      {{ with $.Site.GetPage "/categories/photography" }}
+        {{ range first 9 .Pages.ByDate.Reverse }}
           {{ $content := .Content }}
           {{ if findRE "<img" $content }}
             {{ $imgTag := index (findRE `<img[^>]+src="([^"]+)"` $content) 0 }}
@@ -100,4 +95,4 @@
   </section>
 
 </div>
-{{ end }}
+{{- end }}

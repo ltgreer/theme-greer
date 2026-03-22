@@ -1,5 +1,12 @@
 {
-	"version": "1.0.0",
-	"title": "Greer theme",
-	"description": "A minimal CV-style personal theme with tagged sections and photo grid."
+  "version": "1.0",
+  "title": "Soho theme",
+  "description": "A minimalist two-column theme based on Hyde, with custom theme color.",
+  "fields": [
+    {
+      "field": "params.soho_theme_color",
+      "label": "Theme color",
+      "type": "color"
+    }
+  ]
 }
