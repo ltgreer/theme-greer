@@ -19,11 +19,11 @@
         <li>
           <a href="{{ .Site.BaseURL }}">Home</a>
         </li>
-        {{ range .Site.Menus.main -}}
+        {{ with .Site.Menus.main }}{{ range . -}}
         <li>
           <a href="{{ .URL }}">{{ .Name }}</a>
         </li>
-        {{- end }}
+        {{- end }}{{ end }}
       </ul>
     </nav>
 
