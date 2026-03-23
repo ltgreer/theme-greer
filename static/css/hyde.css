@@ -1,63 +1,31 @@
 /*
- *  __                  __
- * /\ \                /\ \
- * \ \ \___   __  __   \_\ \     __
- *  \ \  _ `\/\ \/\ \  /'_` \  /'__`\
- *   \ \ \ \ \ \ \_\ \/\ \_\ \/\  __/
- *    \ \_\ \_\/`____ \ \___,_\ \____\
- *     \/_/\/_/`/___/> \/__,_ /\/____/
- *                /\___/
- *                \/__/
- *
- * Designed, built, and released under MIT license by @mdo. Learn more at
- * https://github.com/poole/hyde.
- */
-
-
-/*
- * Contents
- *
- * Global resets
- * Sidebar
- * Container
- * Reverse layout
- * Themes
+ * Hyde — restyled with greer.lt aesthetics
  */
 
 
 /*
  * Global resets
- *
- * Update the foundational and global aspects of the page.
  */
 
 html {
-  font-family: 'Open Sans', 'Roboto', Helvetica, Arial, sans-serif;
+  font-family: 'Trirong', Georgia, serif;
 }
 @media (min-width: 48em) {
   html {
-    font-size: 16px;
-  }
-}
-@media (min-width: 58em) {
-  html {
-    font-size: 20px;
+    font-size: 17px;
   }
 }
 
 
 /*
- * Sidebar
- *
- * Flexible banner for housing site name, intro, and "footer" content. Starts
- * out above content in mobile and later moves to the side with wider viewports.
+ * Sidebar — greer.lt style: light background, centered, Lato font
  */
 
 .sidebar {
   text-align: center;
   padding: 2rem 1rem;
-  color: rgba(255,255,255,.5);
-  background-color: #202020;
+  color: #777;
+  background-color: #e4e4e4;
 }
 @media (min-width: 48em) {
   .sidebar {
@@ -65,339 +33,150 @@ html {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 18rem;
-  }
-
-  footer {
-    margin-left: 19rem !important;
-    margin-right: 1rem !important;
+    width: 14rem;
+    text-align: center;
   }
 }
 
 /* Sidebar links */
 .sidebar a {
-  color: #fff;
+  color: #777;
+  border-bottom: none;
+  display: block;
+  transition: .5s;
+}
+.sidebar a:hover {
+  color: #333;
+  background-color: #fcfcfc;
 }
 
 /* About section */
 .sidebar-about h1 {
-  color: #fff;
+  color: #333;
   margin-top: 0;
-  font-size: 1.5rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5em;
   font-weight: 400;
-  padding-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+.sidebar-about h1 a {
+  color: #333;
+  border-bottom: none;
+}
+.sidebar-about h1 a:hover {
+  background-color: transparent;
 }
 
-/* Sidebar nav */
+.sidebar-about .lead {
+  color: #777;
+  font-size: .8em;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: .1em;
+  margin-top: 1em;
+}
+
+/* Sidebar nav — greer.lt menulight style */
 .sidebar-nav {
-  padding-left: 0;
-  list-style: none;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-family: 'Lato', sans-serif;
+  font-size: .85em;
+  text-transform: uppercase;
+  letter-spacing: .1em;
 }
 .sidebar-nav-item {
   display: block;
+  line-height: 2;
 }
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
-  text-decoration: underline;
+  text-decoration: none;
+  color: #333;
 }
 .sidebar-nav-item.active {
   font-weight: bold;
 }
 
-/* Container
- *
- * Align the contents of the site above the proper threshold with some margin-fu
- * with a 25%-wide `.sidebar`.
+/* Sticky sidebar */
+@media (min-width: 48em) {
+  .sidebar-sticky {
+    position: absolute;
+    right:  1rem;
+    bottom: 1rem;
+    left:   1rem;
+  }
+}
+
+
+/*
+ * Container
  */
 
 .content {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  min-height: 50%;
+  padding-top:    4rem;
+  padding-bottom: 4rem;
 }
-
-
-html,
-body {
-  height: 100%;
-  width: 100%;
-}
-
-footer {
-  font-size: .7rem;
-  text-align: center;
-  height: 40px;
-  padding: 1rem 0;
-  margin: 0 1rem;
-  border-top: 1px solid #e0e0e0;
-}
-
 
 @media (min-width: 48em) {
   .content {
-    max-width: 40rem;
-    margin-left: 20rem;
+    max-width: 600px;
+    margin-left: 16rem;
     margin-right: 2rem;
-    margin-bottom: -40px;
-    min-height: 100%;
   }
 }
 
-.img-circle {
-  border-radius: 50%;
-}
-
-.img-headshot {
-  border: 3px solid #fff;
-  height: 150px;
-  width: 150px;
-}
-
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.sidebar {
-  background-color: #49757a;
-  color: #fff;
-}
-
-.sidebar a,
-.sidebar-about h1 {
-  color: #fff;
-}
-
-footer a,
-.content a,
-.related-posts li a:hover {
-  color: #49757a;
-}
-
-.read-more-link {
-  margin-top: 1rem;
-}
-
-.read-more-link a {
-  padding: 8px 16px;
-  border: 1px solid;
-  border-color: #49757a;
-  border-radius: 4px;
-}
-
-.read-more-link a:hover {
-  text-decoration: none;
-  color: #fff;
-  background-color: #49757a;
-}
-
-.pull-right {
-  float: right;
-}
-
-ul.posts {
-  list-style: none;
-  padding: 0 1rem;
-}
-
-.social-icons,
-.sidebar nav {
-  margin-top: 1rem;
-}
-
-ul.posts li,
-.sidebar nav li {
-  font-size: 1.2rem;
-  padding: 0.25rem 0;
-}
-
-.social-icons a {
-  font-size: 1.5rem;
-  padding: 0.2rem;
-}
-
-@media (min-width: 58rem) {
-  .social-icons a {
-    font-size: 1.2rem;
-  }
-
-  ul.posts li,
-  .sidebar nav li {
-    font-size: inherit;
-    padding: 0;
+@media (min-width: 64em) {
+  .content {
+    margin-left: 18rem;
+    margin-right: 4rem;
   }
 }
 
-.social-icons a,
-.social-icons a:hover,
-.social-icons a:focus {
-  text-decoration: none !important;
+
+/*
+ * Entry content — greer.lt style transitions
+ */
+
+.e-content a {
+  transition: .5s;
+}
+.e-content a:hover {
+  background-color: #fcfcfc;
+}
+.e-content p,
+.e-content > ol,
+.e-content > ul {
+  margin: 1.6em 0;
 }
 
-.pagination {
-  justify-content: center;
-  display: flex;
-  margin: 1em 0 2rem 0;
-  padding: 0;
-}
-
-.pagination ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-.pagination li {
-  display: block;
-  float: left;
-  margin-left: -1px;
-}
-
-.pagination li a {
-  display: block;
-  margin-bottom: 0.25em;
-  padding: 0.5em 1em;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 1.5;
-  text-align: center;
-  text-decoration: none;
-  color: #49757a;
-  border: 1px solid #49757a;
-  border-radius: 0;
-}
-
-.pagination li a:hover {
-  color: #fff;
-  background-color: #49757a;
-  opacity: 0.75;
-}
-
-.pagination li.active a {
-  color: #fff;
-  background-color: #49757a;
-}
-
-.pagination li.disabled a {
-  color: rgba(67, 118, 122, 0.5);
-  pointer-events: none;
-  cursor: not-allowed;
-}
-
-.pagination li:first-child {
-  margin-left: 0;
-}
-
-.pagination li:first-child a {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-
-.pagination li:last-child a {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.share-buttons {
-  text-align: center;
-  font-size: 2rem;
-  margin-top: 2rem;
-}
-
-.share-buttons a {
-  padding: 0 0.6rem;
-}
-
-.share-buttons a:hover {
-  opacity: 0.75;
-}
-
-ul.tags {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-}
-
-ul.tags li {
-  display: inline-block;
-  margin: 0.25rem 0;
-}
-
-a.tag-link {
-  background-color: #f2f2f2;
-  padding: 5px 10px;
-  border-radius: 3px;
-  font-size: 0.75rem;
-  text-decoration: none;
-  color: #757575 !important;
-}
-
-a.tag-link:hover {
-  text-decoration: none;
-}
-
-figure {
-  padding: 0;
-  margin: 0;
-}
-
-figure > img {
-  margin: 0 auto;
-}
-
-figcaption {
-  text-align: center;
-  font-size: 80%;
-}
-
-.tagline {
-  display: block;
-  font-size: 1.2rem;
-  margin-bottom: .5rem;
-  font-weight: 400;
-}
-
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.flex {
-  display: flex;
-  justify-content: space-between;
-}
-
-.nowrap {
-  white-space: nowrap;
-}
 
 /*
  * Homepage sections
  */
 
 .homepage-sections {
-  padding: 0 1rem;
+  padding: 0;
 }
 
 .home-section {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ccc;
 }
-
 .home-section:last-child {
   border-bottom: none;
 }
 
 .section-heading {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-family: 'Lato', sans-serif;
+  font-size: .85em;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #999;
-  margin-bottom: 0.5rem;
+  letter-spacing: .1em;
+  color: #777;
+  margin-bottom: .5rem;
+  margin-top: 0;
 }
 
 .section-list {
@@ -407,17 +186,20 @@ figcaption {
 }
 
 .section-list li {
-  padding: 0.3rem 0;
-  font-size: 1rem;
+  padding: .25rem 0;
+  font-size: .95em;
 }
 
 .section-list li a {
-  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #bfbfbf;
+  transition: .5s;
 }
 
 .section-list li a:hover {
-  text-decoration: underline;
+  background-color: #fcfcfc;
 }
+
 
 /*
  * Photo grid
@@ -433,6 +215,10 @@ figcaption {
   aspect-ratio: 1;
   overflow: hidden;
   display: block;
+  border-bottom: none;
+}
+.photo-grid-item:hover {
+  background-color: transparent;
 }
 
 .photo-grid-item img {
@@ -441,15 +227,93 @@ figcaption {
   object-fit: cover;
   margin: 0;
   border-radius: 0;
-  transition: opacity 0.2s ease;
+  -webkit-filter: grayscale(80%);
+          filter: grayscale(80%);
+  transition: .5s;
 }
 
 .photo-grid-item:hover img {
-  opacity: 0.85;
+  -webkit-filter: none;
+          filter: none;
 }
 
 @media (max-width: 600px) {
   .photo-grid {
     gap: 2px;
+  }
+}
+
+
+/*
+ * Light / muted utility classes (from greer.lt)
+ */
+
+.light {
+  color: #777;
+}
+.lighter {
+  color: #c9c9c9;
+}
+.lighter a {
+  transition: .5s;
+  border-style: none !important;
+}
+.lighter a:hover {
+  background-color: #fcfcfc;
+  border-style: none !important;
+}
+.smaller {
+  font-size: .75em;
+  letter-spacing: .2em;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.menulight {
+  color: #777;
+  font-size: 1.1em;
+  font-weight: 400;
+  margin-bottom: 0;
+  padding-left: .2em;
+  padding-right: .2em;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+
+/*
+ * Post nav
+ */
+
+#post-nav {
+  padding-top: 25px;
+}
+
+#post-nav .prev {
+  padding-right: 10px;
+}
+
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 1rem;
+}
+
+
+/*
+ * Responsive
+ */
+
+@media screen and (max-width: 48em) {
+  .sidebar {
+    padding: 1.5rem 1rem;
+  }
+  .sidebar-about h1 {
+    font-size: 1.3em;
+  }
+  .homepage-sections {
+    padding: 0;
   }
 }

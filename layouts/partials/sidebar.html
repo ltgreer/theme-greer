@@ -1,38 +1,24 @@
-<aside class="sidebar">
-  <div class="container">
-    <div class="sidebar-about">
-      {{ with .Site.Author.avatar }}
-        <div class="author-image">
-          <a href="{{ $.Site.BaseURL }}">
-            <img src="{{ . | relURL }}" class="img-circle img-headshot center" alt="Profile Picture">
-          </a>
-        </div>
-     {{ end }}
-
-      <h1>{{ .Site.Title }}</h1>
-
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about h-card">
+      <h1>
+        <a href="/">
+          <span class="p-name">{{ .Site.Title }}</span>
+        </a>
+      </h1>
       <p class="lead">{{ .Site.Params.description | safeHTML }}</p>
     </div>
 
-    <nav>
-      <ul class="sidebar-nav">
-        <li>
-          <a href="{{ .Site.BaseURL }}">Home</a>
-        </li>
-        {{ with .Site.Menus.main }}{{ range . -}}
-        <li>
-          <a href="{{ .URL }}">{{ .Name }}</a>
-        </li>
-        {{- end }}{{ end }}
-      </ul>
-    </nav>
+    <nav class="sidebar-nav">
 
-    <section class="social-icons">
-      {{ range $item := .Site.Params.socialIcons }}
-      <a href="{{ $item.url }}" rel="me" title="{{ $item.title }}" target="_blank">
-        <i class="fab {{ $item.icon }}" aria-hidden="true"></i>
-      </a>
-      {{ end }}
-    </section>
+		{{ with .Site.Menus.main }}{{ range . }}
+			{{ if .Page.Params.redirect_url }}
+				<a class="sidebar-nav-item" href="{{ .Page.Params.redirect_url }}">{{ .Name }}</a>
+			{{ else }}
+				<a class="sidebar-nav-item" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
+			{{ end }}
+		{{ end }}{{ end }}
+
+    </nav>
   </div>
-</aside>
+</div>

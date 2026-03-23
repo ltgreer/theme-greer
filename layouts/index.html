@@ -1,9 +1,9 @@
-{{ define "main" -}}
+{{ define "main" }}
 <div class="homepage-sections">
 
-  {{/* ===== WORKING SECTION ===== */}}
+  {{/* ===== WORKING ===== */}}
   <section class="home-section">
-    <h2 class="section-heading">Working</h2>
+    <h2 class="section-heading menulight">Working</h2>
     <ul class="section-list">
       {{ with $.Site.GetPage "/categories/working" }}
         {{ range first 5 .Pages.ByDate.Reverse }}
@@ -19,9 +19,9 @@
     </ul>
   </section>
 
-  {{/* ===== WRITING SECTION ===== */}}
+  {{/* ===== WRITING ===== */}}
   <section class="home-section">
-    <h2 class="section-heading">Writing</h2>
+    <h2 class="section-heading menulight">Writing</h2>
     <ul class="section-list">
       {{ with $.Site.GetPage "/categories/writing" }}
         {{ range first 5 .Pages.ByDate.Reverse }}
@@ -37,9 +37,9 @@
     </ul>
   </section>
 
-  {{/* ===== SHARING SECTION ===== */}}
+  {{/* ===== SHARING ===== */}}
   <section class="home-section">
-    <h2 class="section-heading">Sharing</h2>
+    <h2 class="section-heading menulight">Sharing</h2>
     <ul class="section-list">
       {{ with $.Site.GetPage "/categories/sharing" }}
         {{ range first 5 .Pages.ByDate.Reverse }}
@@ -55,9 +55,9 @@
     </ul>
   </section>
 
-  {{/* ===== ABOUT SECTION ===== */}}
+  {{/* ===== ABOUT ===== */}}
   <section class="home-section">
-    <h2 class="section-heading">About</h2>
+    <h2 class="section-heading menulight">About</h2>
     <ul class="section-list">
       {{ with $.Site.GetPage "/categories/about" }}
         {{ range first 5 .Pages.ByDate.Reverse }}
@@ -73,9 +73,9 @@
     </ul>
   </section>
 
-  {{/* ===== PHOTOGRAPHY SECTION ===== */}}
+  {{/* ===== PHOTOGRAPHY ===== */}}
   <section class="home-section">
-    <h2 class="section-heading">Photography</h2>
+    <h2 class="section-heading menulight">Photography</h2>
     <div class="photo-grid">
       {{ with $.Site.GetPage "/categories/photography" }}
         {{ range first 9 .Pages.ByDate.Reverse }}
@@ -95,4 +95,4 @@
   </section>
 
 </div>
-{{- end }}
+{{ end }}

@@ -1,38 +1,5 @@
 /*
- *                        ___
- *                       /\_ \
- *  _____     ___     ___\//\ \      __
- * /\ '__`\  / __`\  / __`\\ \ \   /'__`\
- * \ \ \_\ \/\ \_\ \/\ \_\ \\_\ \_/\  __/
- *  \ \ ,__/\ \____/\ \____//\____\ \____\
- *   \ \ \/  \/___/  \/___/ \/____/\/____/
- *    \ \_\
- *     \/_/
- *
- * Designed, built, and released under MIT license by @mdo. Learn more at
- * https://github.com/poole/poole.
- */
-
-
-/*
- * Contents
- *
- * Body resets
- * Custom type
- * Messages
- * Container
- * Masthead
- * Posts and pages
- * Pagination
- * Reverse layout
- * Themes
- */
-
-
-/*
- * Body resets
- *
- * Update the foundational and global aspects of the page.
+ * Poole — rewritten with greer.lt typography and color palette
  */
 
 * {
@@ -48,57 +15,71 @@ body {
 }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-}
-@media (min-width: 38em) {
-  html {
-    font-size: 20px;
-  }
+  font-family: 'Trirong', Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.85;
+  font-weight: 400;
 }
 
 body {
-  color: #515151;
-  background-color: #fff;
+  color: #333;
+  background-color: #eee;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
-          text-size-adjust: 100%;
+  word-wrap: break-word;
 }
 
-/* No `:visited` state is required by default (browsers will use `a`) */
-a {
-  color: #227bb9;
-  text-decoration: none;
+::selection {
+  background-color: rgba(174, 0, 0, 0.82);
+  color: #fff;
 }
-/* `:focus` is linked to `:hover` for basic accessibility */
+
+/* Links — greer.lt style: subtle bottom border, hover bg */
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid #bfbfbf;
+  padding-bottom: 1px;
+  transition: .5s;
+}
+a strong {
+  color: inherit;
+}
 a:hover,
 a:focus {
-  text-decoration: underline;
+  background-color: #fcfcfc;
+  text-decoration: none;
 }
 
-/* Headings */
+/* Headings — Lato, lightweight */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
-  font-weight: bold;
-  line-height: 1.25;
-  color: #313131;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.3;
+  color: #333;
   text-rendering: optimizeLegibility;
+  letter-spacing: .1em;
 }
 h1 {
-  font-size: 1.5rem;
+  font-size: 2.1em;
 }
 h2 {
-  margin-top: 1rem;
-  font-size: 1.5rem;
+  margin-top: 1.5em;
+  font-size: 1.6em;
+  margin-bottom: -.7em;
 }
 h3 {
-  margin-top: 1.5rem;
-  font-size: 1.25rem;
+  margin-top: 1.4em;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: -.7em;
 }
 h4, h5, h6 {
-  margin-top: 1rem;
-  font-size: 1rem;
+  margin-top: 1.3em;
+  font-size: 1em;
+  font-weight: 400;
+  margin-bottom: -.7em;
 }
 
 /* Body text */
@@ -111,13 +92,18 @@ strong {
   color: #303030;
 }
 
-
 /* Lists */
 ul, ol, dl {
   margin-top: 0;
   margin-bottom: 1rem;
+  padding-left: 1.6em;
 }
-
+ul {
+  list-style-type: disc;
+}
+ol {
+  list-style-type: decimal;
+}
 dt {
   font-weight: bold;
 }
@@ -127,11 +113,11 @@ dd {
 
 /* Misc */
 hr {
-  position: relative;
-  margin: 1.5rem 0;
+  width: 140px;
+  margin: 2em auto;
   border: 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #fff;
+  border-top: 1px solid #ccc;
+  display: block;
 }
 
 abbr {
@@ -147,22 +133,28 @@ abbr[title] {
 
 /* Code */
 code,
-pre,
-.highlight {
-  font-family: Menlo, Monaco, "Courier New", monospace;
+pre {
+  font-family: Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', monospace;
 }
 code {
-  color: #e83e8c;
-  white-space: pre;
+  padding: .25em .5em;
+  font-size: 85%;
+  color: #bf616a;
+  background-color: rgba(0, 0, 0, .03);
+  border-radius: 3px;
 }
 pre {
   display: block;
-  overflow: auto;
-  margin: 0;
-  padding: 0;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: .7em 1em;
+  font-size: .8rem;
   line-height: 1.4;
   white-space: pre;
-  background-color: #fff;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: rgba(0, 0, 0, .03);
 }
 pre code {
   padding: 0;
@@ -170,104 +162,66 @@ pre code {
   color: inherit;
   background-color: transparent;
 }
+
 .highlight {
-  font-size: 90%;
   margin-bottom: 1rem;
   border-radius: 4px;
-  border: 1px solid;
-  border-color: #ddd #ddd #ccc;
-  border-radius: 3px;
 }
 .highlight pre {
   margin-bottom: 0;
 }
-.chroma .lntable {
-  border-spacing: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  width: auto;
-  overflow: auto;
-  display: block;
-}
-.chroma .lntd {
-  background-color: #fff;
-  border: 0;
-}
 
-/* Quotes */
+/* Quotes — greer.lt style */
 blockquote {
   padding: .5rem 1rem;
-  margin: .8rem 0;
-  color: #7a7a7a;
-  border-left: .25rem solid #e5e5e5;
+  margin: .8rem 0 .8rem .25em;
+  color: #777;
+  border-left: 1px solid #ccc;
 }
 blockquote p:last-child {
   margin-bottom: 0;
 }
-@media (min-width: 30em) {
-  blockquote {
-    padding-right: 5rem;
-    padding-left: 1.25rem;
-  }
-}
 
+/* Images — greer.lt grayscale filter */
 img {
   display: block;
-  margin: 0 0 1rem;
-  border-radius: 5px;
   max-width: 100%;
+  height: auto;
+  margin: 0 0 1rem;
+  border-radius: 0;
+  -webkit-filter: grayscale(80%);
+          filter: grayscale(80%);
+  transition: .5s;
+}
+img:hover {
+  -webkit-filter: none;
+          filter: none;
 }
 
 /* Tables */
 table {
   margin-bottom: 1rem;
   width: 100%;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #dadada;
   border-collapse: collapse;
 }
 td,
 th {
-  padding: .25rem .5rem;
-  border: 1px solid #e5e5e5;
-}
-tbody tr:nth-child(odd) td,
-tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
+  padding: 5px 12px 6px;
+  border: 1px solid #dadada;
 }
 
-
-/*
- * Custom type
- *
- * Extend paragraphs with `.lead` for larger introductory text.
- */
-
+/* Lead text */
 .lead {
   font-size: 1rem;
   font-weight: 300;
-}
-
-
-/*
- * Messages
- *
- * Show alert messages to users. You may add it to single elements like a `<p>`,
- * or to a parent if there are multiple elements to show.
- */
-
-.message {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  color: #717171;
-  background-color: #f9f9f9;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: .1em;
 }
 
 
 /*
  * Container
- *
- * Center the page content.
  */
 
 .container {
@@ -280,78 +234,56 @@ tbody tr:nth-child(odd) th {
 
 
 /*
- * Masthead
- *
- * Super small header above the content for site name and short description.
- */
-
-.masthead {
-  padding-top:    1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 3rem;
-}
-.masthead-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #505050;
-}
-.masthead-title a {
-  color: #505050;
-}
-.masthead-title small {
-  font-size: 75%;
-  font-weight: 400;
-  color: #c0c0c0;
-  letter-spacing: 0;
-}
-
-
-/*
  * Posts and pages
- *
- * Each post is wrapped in `.post` and is used on default and post layouts. Each
- * page is wrapped in `.page` and is only used on the page layout.
  */
 
 .page,
 .post {
-  margin-bottom: 2em;
+  margin-bottom: 4em;
 }
 
-.page .title,
-.post .title {
-  font-size: 2rem;
-}
-
-/* Blog post or page title */
 .page-title,
 .post-title,
 .post-title a {
-  color: #303030;
+  color: #333;
+  border-bottom: none;
+}
+.post-title a:hover {
+  background-color: transparent;
 }
 .page-title,
 .post-title {
-  font-size: 1.6rem;
   margin-top: 0;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  letter-spacing: .1em;
 }
 
 /* Meta data line below post title */
 .post-date {
   display: block;
-  font-size: 1.0rem;
+  margin-top: -.5rem;
   margin-bottom: 1rem;
-  color: #757575;
+  color: #777;
+  font-size: .75em;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: .2em;
+  text-transform: uppercase;
 }
-
-.posts .post-date {
-  margin-bottom: 0.5rem;
+.post-date a {
+  color: #777;
+  border-bottom: none;
+}
+.post-date a:hover {
+  background-color: transparent;
+  color: #333;
 }
 
 /* Related posts */
 .related {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #ccc;
 }
 .related-posts {
   padding-left: 0;
@@ -365,7 +297,6 @@ tbody tr:nth-child(odd) th {
   color: #999;
 }
 .related-posts li a:hover {
-  color: #227bb9;
   text-decoration: none;
 }
 .related-posts li a:hover small {
@@ -375,33 +306,28 @@ tbody tr:nth-child(odd) th {
 
 /*
  * Pagination
- *
- * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
- * there are no more previous or next posts to show.
  */
 
 .pagination {
-  overflow: hidden; /* clearfix */
+  overflow: hidden;
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #ccc;
   text-align: center;
 }
 
-/* Pagination items can be `span`s or `a`s */
 .pagination-item {
   display: block;
   padding: 1rem;
-  border: 1px solid #eee;
+  border: 1px solid #ccc;
 }
 .pagination-item:first-child {
   margin-bottom: -1px;
 }
 
-/* Only provide a hover state for linked pagination items */
 a.pagination-item:hover {
-  background-color: #f5f5f5;
+  background-color: #fcfcfc;
 }
 
 @media (min-width: 30em) {
@@ -422,4 +348,11 @@ a.pagination-item:hover {
     border-top-right-radius:    4px;
     border-bottom-right-radius: 4px;
   }
+}
+
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 1rem;
 }

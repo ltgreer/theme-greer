@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="post h-entry">
+  {{ if .Title }}
+    <h1 class="page-title p-name">{{ .Title }}</h1>
+  {{ end }}
+  <a href="{{ .Permalink }}" class="post-date u-url"><time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "2 Jan 2006" }}</time></a>
+  <div class="e-content">
+  {{ .Content }}
+  </div>
+</div>
+
+{{ if .Site.Params.include_conversation }}
+<script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+{{ end }}
+
+{{ end }}
