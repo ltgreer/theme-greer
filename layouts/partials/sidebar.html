@@ -9,7 +9,22 @@
       <p class="lead">{{ .Site.Params.description | safeHTML }}</p>
     </div>
 
+<<<<<<< HEAD
     <nav class="sidebar-nav">
+=======
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="{{ .Site.BaseURL }}">Home</a>
+        </li>
+        {{ range .Site.Menus.main -}}
+        <li>
+          <a href="{{ .URL }}">{{ .Name }}</a>
+        </li>
+        {{- end }}
+      </ul>
+    </nav>
+>>>>>>> parent of 21d1913 (Add missing partials, fix nil menu error)
 
 		{{ with .Site.Menus.main }}{{ range . }}
 			{{ if .Page.Params.redirect_url }}
