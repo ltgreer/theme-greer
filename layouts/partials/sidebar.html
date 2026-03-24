@@ -1,14 +1,10 @@
 <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about h-card">
-      <a href="/" class="sidebar-logo">
+      <a href="/" class="sidebar-brand">
         <img src="{{ "ltg.svg" | relURL }}" alt="{{ .Site.Title }}" class="sidebar-logo-img" />
+        <h1 class="sidebar-title"><span class="p-name">{{ .Site.Title }}</span></h1>
       </a>
-      <h1>
-        <a href="/" class="sidebar-title">
-          <span class="p-name">{{ .Site.Title }}</span>
-        </a>
-      </h1>
       <p class="lead">{{ .Site.Params.description | safeHTML }}</p>
     </div>
 

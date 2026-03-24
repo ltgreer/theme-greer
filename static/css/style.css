@@ -26,7 +26,7 @@
 
 /* ============================================================================
    1. RESET & BASE TYPOGRAPHY
-   Fonts: Trirong (body), Lato (headings/UI)
+   Font: Jost (body 400, headings 700)
    Colors: #333 text, #eee background, #777 muted
    ============================================================================ */
 
@@ -41,7 +41,7 @@ body {
 }
 
 html {
-  font-family: 'Trirong', Georgia, 'Times New Roman', serif;
+  font-family: 'Jost', Helvetica, Arial, sans-serif;
   font-size: 17px;
   line-height: 1.85;
   font-weight: 400;
@@ -84,13 +84,13 @@ a:focus {
 
 /* ============================================================================
    3. HEADINGS
-   Lato sans-serif, lightweight (300), wide letter-spacing
+   Jost sans-serif, bold (700), wide letter-spacing
    ============================================================================ */
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
-  font-family: 'Lato', Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: 'Jost', Helvetica, Arial, sans-serif;
+  font-weight: 700;
   line-height: 1.3;
   color: #333;
   text-rendering: optimizeLegibility;
@@ -300,15 +300,17 @@ td, th {
   background-color: #fcfcfc;
 }
 
-/* Logo image above title */
-.sidebar-logo {
+/* Brand block: logo + title as one hoverable unit */
+.sidebar-brand {
   display: block;
   margin: 0 auto .5rem;
   border-bottom: none;
+  text-decoration: none;
+  transition: .5s;
 }
 
-.sidebar-logo:hover {
-  background-color: transparent;
+.sidebar-brand:hover {
+  background-color: #fcfcfc;
 }
 
 .sidebar-logo-img {
@@ -320,40 +322,27 @@ td, th {
   transition: .5s;
 }
 
-.sidebar-logo:hover .sidebar-logo-img {
+.sidebar-brand:hover .sidebar-logo-img {
   -webkit-filter: none;
           filter: none;
 }
 
 /* Site title in sidebar */
-.sidebar-about h1 {
-  color: #333;
-  margin-top: 0;
-  font-family: 'Lato', sans-serif;
-  font-size: 1.5em;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
-
-/* Title link: same hover effect as other links */
 .sidebar-title {
   color: #333;
-  border-bottom: 1px solid transparent;
-  display: inline;
-  transition: .5s;
-}
-
-.sidebar-title:hover {
-  border-bottom: 1px solid #bfbfbf;
-  background-color: #fcfcfc;
+  margin-top: 0;
+  font-family: 'Jost', sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
 }
 
 /* Description text */
 .sidebar-about .lead {
   color: #777;
   font-size: .8em;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Jost', sans-serif;
   letter-spacing: .1em;
   margin-top: 1em;
 }
@@ -362,7 +351,7 @@ td, th {
 .sidebar-nav {
   margin-bottom: 1rem;
   margin-top: 1rem;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Jost', sans-serif;
   font-size: .85em;
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -379,35 +368,40 @@ a.sidebar-nav-item:focus {
   color: #333;
 }
 
-/* Sticky sidebar: pin to bottom on desktop */
+/* Sidebar inner: top-aligned */
 .sidebar-sticky {
-  /* positioned via media query below */
+  /* no absolute positioning — content stays at top */
 }
 
-/* Desktop sidebar: fixed left column, centered */
+/* Desktop sidebar: fixed, centered with content via calc() */
 @media (min-width: 48em) {
   .sidebar {
     position: fixed;
     top: 0;
-    left: 0;
     bottom: 0;
+    left: calc(50% - 26rem);
     width: 14rem;
     text-align: center;
   }
 
   .sidebar-sticky {
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
-    left: 1rem;
+    position: relative;
+    padding-top: 2rem;
   }
 }
 
 
 /* ============================================================================
    10. MAIN CONTENT CONTAINER
-   Max-width 600px, offset from sidebar
+   Site wrapper centers sidebar + content in viewport
    ============================================================================ */
+
+/* Centered wrapper: holds sidebar + content side by side */
+.site-wrap {
+  max-width: 52rem;
+  margin: 0 auto;
+  position: relative;
+}
 
 .container {
   max-width: 38rem;
@@ -423,6 +417,11 @@ a.sidebar-nav-item:focus {
 }
 
 @media (min-width: 48em) {
+  .site-wrap {
+    max-width: 52rem;
+    margin: 0 auto;
+  }
+
   .content {
     max-width: 600px;
     margin-left: 16rem;
@@ -452,8 +451,8 @@ a.sidebar-nav-item:focus {
 .page-title,
 .post-title {
   margin-top: 0;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
+  font-family: 'Jost', sans-serif;
+  font-weight: 700;
   letter-spacing: .1em;
   color: #333;
 }
@@ -474,7 +473,7 @@ a.sidebar-nav-item:focus {
   margin-bottom: 1rem;
   color: #777;
   font-size: .75em;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Jost', sans-serif;
   letter-spacing: .2em;
   text-transform: uppercase;
 }
@@ -518,7 +517,7 @@ a.sidebar-nav-item:focus {
 
 /* Section headings: small uppercase Lato */
 .section-heading {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Jost', sans-serif;
   font-size: .85em;
   font-weight: 400;
   text-transform: uppercase;
@@ -598,7 +597,7 @@ a.sidebar-nav-item:focus {
   overflow: hidden;
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Jost', sans-serif;
   color: #ccc;
   text-align: center;
 }
