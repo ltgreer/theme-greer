@@ -1,0 +1,663 @@
+/*
+ * ============================================================================
+ * GREER THEME — Single stylesheet
+ * Based on Hyde (github.com/microdotblog/theme-hyde)
+ * Styled after greer.lt circa 2018
+ *
+ * TABLE OF CONTENTS
+ * 1. Reset & Base Typography
+ * 2. Links
+ * 3. Headings
+ * 4. Body Text, Lists, Misc
+ * 5. Code & Syntax Highlighting
+ * 6. Blockquotes
+ * 7. Images & Media
+ * 8. Tables
+ * 9. Sidebar
+ * 10. Main Content Container
+ * 11. Posts & Pages
+ * 12. Homepage Sections
+ * 13. Photo Grid
+ * 14. Pagination
+ * 15. Responsive
+ * ============================================================================
+ */
+
+
+/* ============================================================================
+   1. RESET & BASE TYPOGRAPHY
+   Fonts: Trirong (body), Lato (headings/UI)
+   Colors: #333 text, #eee background, #777 muted
+   ============================================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Trirong', Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+body {
+  color: #333;
+  background-color: #eee;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+  word-wrap: break-word;
+}
+
+/* Text selection: dark red highlight */
+::selection {
+  background-color: rgba(174, 0, 0, 0.82);
+  color: #fff;
+}
+
+
+/* ============================================================================
+   2. LINKS
+   Subtle bottom border, 0.5s transition, hover → near-white background
+   ============================================================================ */
+
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid #bfbfbf;
+  padding-bottom: 1px;
+  transition: .5s;
+}
+
+a:hover,
+a:focus {
+  background-color: #fcfcfc;
+  text-decoration: none;
+}
+
+
+/* ============================================================================
+   3. HEADINGS
+   Lato sans-serif, lightweight (300), wide letter-spacing
+   ============================================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: .5rem;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.3;
+  color: #333;
+  text-rendering: optimizeLegibility;
+  letter-spacing: .1em;
+}
+
+h1 { font-size: 2.1em; }
+
+h2 {
+  margin-top: 1.5em;
+  font-size: 1.6em;
+  margin-bottom: -.7em;
+}
+
+h3 {
+  margin-top: 1.4em;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: -.7em;
+}
+
+h4, h5, h6 {
+  margin-top: 1.3em;
+  font-size: 1em;
+  font-weight: 400;
+  margin-bottom: -.7em;
+}
+
+
+/* ============================================================================
+   4. BODY TEXT, LISTS, MISC
+   ============================================================================ */
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+strong {
+  color: #303030;
+}
+
+ul, ol, dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-left: 1.6em;
+}
+
+ul { list-style-type: disc; }
+ol { list-style-type: decimal; }
+dt { font-weight: bold; }
+dd { margin-bottom: .5rem; }
+
+hr {
+  width: 140px;
+  margin: 2em auto;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+abbr {
+  font-size: 85%;
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
+}
+
+abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted #e5e5e5;
+}
+
+
+/* ============================================================================
+   5. CODE & SYNTAX HIGHLIGHTING
+   ============================================================================ */
+
+code,
+pre {
+  font-family: Menlo, Monaco, 'Lucida Console', 'Liberation Mono', monospace;
+}
+
+code {
+  padding: .25em .5em;
+  font-size: 85%;
+  color: #bf616a;
+  background-color: rgba(0, 0, 0, .03);
+  border-radius: 3px;
+}
+
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: .7em 1em;
+  font-size: .8rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: rgba(0, 0, 0, .03);
+}
+
+pre code {
+  padding: 0;
+  font-size: 100%;
+  color: inherit;
+  background-color: transparent;
+}
+
+.highlight {
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.highlight pre {
+  margin-bottom: 0;
+}
+
+
+/* ============================================================================
+   6. BLOCKQUOTES
+   Left border, muted color
+   ============================================================================ */
+
+blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0 .8rem .25em;
+  color: #777;
+  border-left: 1px solid #ccc;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ============================================================================
+   7. IMAGES & MEDIA
+   Grayscale 80% by default, full color on hover
+   ============================================================================ */
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 1rem;
+  border-radius: 0;
+  -webkit-filter: grayscale(80%);
+          filter: grayscale(80%);
+  transition: .5s;
+}
+
+img:hover {
+  -webkit-filter: none;
+          filter: none;
+}
+
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 1rem;
+}
+
+
+/* ============================================================================
+   8. TABLES
+   ============================================================================ */
+
+table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid #dadada;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 5px 12px 6px;
+  border: 1px solid #dadada;
+}
+
+
+/* ============================================================================
+   9. SIDEBAR
+   Same background as page (#eee), centered text, Lato UI font
+   Logo SVG centered above title
+   ============================================================================ */
+
+.sidebar {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #777;
+  background-color: #eee;
+}
+
+/* Sidebar links: no underline, hover → dark text + light bg */
+.sidebar a {
+  color: #777;
+  border-bottom: none;
+  display: block;
+  transition: .5s;
+}
+
+.sidebar a:hover {
+  color: #333;
+  background-color: #fcfcfc;
+}
+
+/* Logo image above title */
+.sidebar-logo {
+  display: block;
+  margin: 0 auto .5rem;
+  border-bottom: none;
+}
+
+.sidebar-logo:hover {
+  background-color: transparent;
+}
+
+.sidebar-logo-img {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+  -webkit-filter: grayscale(80%);
+          filter: grayscale(80%);
+  transition: .5s;
+}
+
+.sidebar-logo:hover .sidebar-logo-img {
+  -webkit-filter: none;
+          filter: none;
+}
+
+/* Site title in sidebar */
+.sidebar-about h1 {
+  color: #333;
+  margin-top: 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+/* Title link: same hover effect as other links */
+.sidebar-title {
+  color: #333;
+  border-bottom: 1px solid transparent;
+  display: inline;
+  transition: .5s;
+}
+
+.sidebar-title:hover {
+  border-bottom: 1px solid #bfbfbf;
+  background-color: #fcfcfc;
+}
+
+/* Description text */
+.sidebar-about .lead {
+  color: #777;
+  font-size: .8em;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: .1em;
+  margin-top: 1em;
+}
+
+/* Navigation links */
+.sidebar-nav {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-family: 'Lato', sans-serif;
+  font-size: .85em;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.sidebar-nav-item {
+  display: block;
+  line-height: 2;
+}
+
+a.sidebar-nav-item:hover,
+a.sidebar-nav-item:focus {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Sticky sidebar: pin to bottom on desktop */
+.sidebar-sticky {
+  /* positioned via media query below */
+}
+
+/* Desktop sidebar: fixed left column, centered */
+@media (min-width: 48em) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 14rem;
+    text-align: center;
+  }
+
+  .sidebar-sticky {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+  }
+}
+
+
+/* ============================================================================
+   10. MAIN CONTENT CONTAINER
+   Max-width 600px, offset from sidebar
+   ============================================================================ */
+
+.container {
+  max-width: 38rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 48em) {
+  .content {
+    max-width: 600px;
+    margin-left: 16rem;
+    margin-right: 2rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .content {
+    margin-left: 18rem;
+    margin-right: 4rem;
+  }
+}
+
+
+/* ============================================================================
+   11. POSTS & PAGES
+   Post titles, dates, entry content
+   ============================================================================ */
+
+.page,
+.post {
+  margin-bottom: 4em;
+}
+
+/* Post/page titles */
+.page-title,
+.post-title {
+  margin-top: 0;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  letter-spacing: .1em;
+  color: #333;
+}
+
+.post-title a {
+  color: #333;
+  border-bottom: none;
+}
+
+.post-title a:hover {
+  background-color: transparent;
+}
+
+/* Date line below title */
+.post-date {
+  display: block;
+  margin-top: -.5rem;
+  margin-bottom: 1rem;
+  color: #777;
+  font-size: .75em;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.post-date a {
+  color: #777;
+  border-bottom: none;
+}
+
+.post-date a:hover {
+  background-color: transparent;
+  color: #333;
+}
+
+/* Entry content spacing */
+.e-content p,
+.e-content > ol,
+.e-content > ul {
+  margin: 1.6em 0;
+}
+
+#post-nav {
+  padding-top: 25px;
+}
+
+
+/* ============================================================================
+   12. HOMEPAGE SECTIONS
+   Working, Writing, Sharing, About — each with heading + list of links
+   ============================================================================ */
+
+.home-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.home-section:last-child {
+  border-bottom: none;
+}
+
+/* Section headings: small uppercase Lato */
+.section-heading {
+  font-family: 'Lato', sans-serif;
+  font-size: .85em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #777;
+  margin-bottom: .5rem;
+  margin-top: 0;
+}
+
+/* Section item lists */
+.section-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section-list li {
+  padding: .25rem 0;
+  font-size: .95em;
+}
+
+.section-list li a {
+  color: #333;
+  border-bottom: 1px solid #bfbfbf;
+  transition: .5s;
+}
+
+.section-list li a:hover {
+  background-color: #fcfcfc;
+}
+
+
+/* ============================================================================
+   13. PHOTO GRID
+   3x3 grid of square thumbnails, grayscale → color on hover
+   ============================================================================ */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.photo-grid-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: block;
+  border-bottom: none;
+}
+
+.photo-grid-item:hover {
+  background-color: transparent;
+}
+
+.photo-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 0;
+  -webkit-filter: grayscale(80%);
+          filter: grayscale(80%);
+  transition: .5s;
+}
+
+.photo-grid-item:hover img {
+  -webkit-filter: none;
+          filter: none;
+}
+
+
+/* ============================================================================
+   14. PAGINATION
+   ============================================================================ */
+
+.pagination {
+  overflow: hidden;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  font-family: 'Lato', sans-serif;
+  color: #ccc;
+  text-align: center;
+}
+
+.pagination-item {
+  display: block;
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+
+.pagination-item:first-child {
+  margin-bottom: -1px;
+}
+
+a.pagination-item:hover {
+  background-color: #fcfcfc;
+}
+
+@media (min-width: 30em) {
+  .pagination {
+    margin: 3rem 0;
+  }
+  .pagination-item {
+    float: left;
+    width: 50%;
+  }
+  .pagination-item:first-child {
+    margin-bottom: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .pagination-item:last-child {
+    margin-left: -1px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+}
+
+
+/* ============================================================================
+   15. RESPONSIVE
+   Mobile: sidebar stacks on top, full width
+   ============================================================================ */
+
+@media screen and (max-width: 48em) {
+  .sidebar {
+    padding: 1.5rem 1rem;
+  }
+
+  .sidebar-about h1 {
+    font-size: 1.3em;
+  }
+
+  .sidebar-logo-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .photo-grid {
+    gap: 2px;
+  }
+}
