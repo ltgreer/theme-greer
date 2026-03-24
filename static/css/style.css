@@ -26,7 +26,7 @@
 
 /* ============================================================================
    1. RESET & BASE TYPOGRAPHY
-   Font: Jost 400 throughout
+   Font: Jost (body 400, headings 700)
    Colors: #333 text, #eee background, #777 muted
    ============================================================================ */
 
@@ -84,13 +84,13 @@ a:focus {
 
 /* ============================================================================
    3. HEADINGS
-   Jost sans-serif, regular (400), wide letter-spacing
+   Jost sans-serif, bold (700), wide letter-spacing
    ============================================================================ */
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-family: 'Jost', Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.3;
   color: #333;
   text-rendering: optimizeLegibility;
@@ -333,7 +333,7 @@ td, th {
   margin-top: 0;
   font-family: 'Jost', sans-serif;
   font-size: 1.7em;
-  font-weight: 400;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .1em;
 }
@@ -452,7 +452,7 @@ a.sidebar-nav-item:focus {
 .post-title {
   margin-top: 0;
   font-family: 'Jost', sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: .1em;
   color: #333;
 }
